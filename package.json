@@ -1,0 +1,43 @@
+{
+  "name": "hackathonjobs",
+  "version": "0.0.1",
+  "description": "Connect hackathon sponsors with hackathon attendees",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rowandh/hackathonjobs.git"
+  },
+  "keywords": [
+    "hackathon"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rowandh/hackathonjobs/issues"
+  },
+  "homepage": "https://github.com/rowandh/hackathonjobs#readme",  
+  "main": "js/app.js",
+  "dependencies": {
+    "react": "^0.13.3",
+    "browserify": "^11.1.0",
+    "parse": "^1.6.3"
+  },
+  "devDependencies": {
+    "reactify": "^1.1.1",
+    "browserify": "^11.1.0",
+    "parse": "^1.6.3",
+    "watchify": "^3.4.0",
+    "envify": "^3.4.0",
+    "uglify-js": "~2.4.24"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "watchify -o js/bundle.js -v -d js/app.js",
+    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js"
+  },
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  }
+}
